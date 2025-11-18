@@ -45,11 +45,7 @@ const filterByRating = (books: BooksType[]): BooksType[] => {
 	return finalBooks
 }
 
-const books = [
-	{ title: 'Book A', rating: 4.5 },
-	{ title: 'Book B', rating: 3.2 },
-	{ title: 'Book C', rating: 5.0 },
-];
+
 
 
 
@@ -80,27 +76,6 @@ const printBookDetails = (book: Book): string => {
 	console.log(valueToLog)
 }
 
-
-
-const calculateTotalPrice = (products: []): number => {
-	let totalPrice = 0
-	if (products.length === 0) return 0
-
-	products.map(product => {
-		let itemPrice = 0
-		if (product.discount) {
-			const discountedValue = (product.price * product.quantity) * product.discount / 100
-			itemPrice = (product.price * product.quantity) - discountedValue
-		} else {
-			itemPrice = product.price * product.quantity
-		}
-		totalPrice += itemPrice
-	})
-	return totalPrice
-}
-
-
-
 const getUniqueValues = (array1: string[] | number[], array2: string[] | number[]): string[] | number[] => {
 
 	const joinedArr = array1
@@ -124,3 +99,19 @@ const getUniqueValues = (array1: string[] | number[], array2: string[] | number[
 	return newArr
 }
 
+const calculateTotalPrice = (products: []): number => {
+	let totalPrice = 0
+	if (products.length === 0) return 0
+
+	products.map(product => {
+		let itemPrice = 0
+		if (product.discount) {
+			const discountedValue = (product.price * product.quantity) * product.discount / 100
+			itemPrice = (product.price * product.quantity) - discountedValue
+		} else {
+			itemPrice = product.price * product.quantity
+		}
+		totalPrice += itemPrice
+	})
+	return totalPrice
+}
